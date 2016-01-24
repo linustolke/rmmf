@@ -1,0 +1,9 @@
+.PHONY : goal1
+.PHONY : goal1_DEPS
+goal1_DEPS : dep1 dep2
+goal1 : goal1_DEPS dir1/goal11
+dir1/goal11 : dir1/dep goal1_DEPS
+	cd dir1 && command11
+dir1/dep :  goal1_DEPS
+	cd dir1 && command01
+goal2 : goal1
